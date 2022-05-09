@@ -1,14 +1,15 @@
-.title {
+.title, .key {
   font-family: 'Georgia', 'Times New Roman', serif;
 }
 
-.description, .language, .textarea, .key {
+.description, .language, .textarea {
   font-family: 'Arial', 'Verdana', sans-serif;
 }
 
 body {
   width: 100%;
   height: 100%;
+  background-color: #f0ffee;
 }
 
 .wrapper {
@@ -56,9 +57,11 @@ body {
   width: 800px;
   height: 300px;
   border-radius: 10px;
+  border-color: #fcfcfc;
   -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
           box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
   padding: 15px;
+  background-color: #fcfcfc;
   font-size: 24px;
   line-height: 36px;
   font-weight: normal;
@@ -70,11 +73,11 @@ body {
   display: block;
   width: 1000px;
   height: 300px;
-  border: 2px solid #000000;
-  border-radius: 10px;
+  border: 2px solid #f1b3be;
+  border-radius: 20px;
   -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
           box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-  background-color: #888888;
+  background-color: #ffe0e5;
   padding: 10px;
   margin-top: 15px;
 }
@@ -115,21 +118,22 @@ body {
           align-items: center;
   width: 55px;
   height: 50px;
-  border: 1px solid #000000;
-  border-radius: 5px;
-  background-color: #545454;
-  font-size: 20px;
+  border: 1px solid #f1b3be;
+  border-radius: 10px;
+  background-color: #fac6ce;
+  font-size: 22px;
   line-height: 26px;
   font-weight: normal;
   font-style: normal;
   color: #FFFF;
-  -webkit-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
+  -webkit-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out;
   cursor: pointer;
 }
 
 .key:hover {
-  background-color: #C6C6C6;
+  background-color: #ffeaed;
+  border-color: #fac6ce;
 }
 
 .key.backspace {
@@ -174,5 +178,14 @@ body {
 
 .key.ctrlright {
   width: 80px;
+}
+
+.key:active, .key.active {
+  background-color: #ffeaed;
+  border-color: #fac6ce;
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
+  -webkit-box-shadow: inset 0 0 20px #f1b3be;
+          box-shadow: inset 0 0 20px #f1b3be;
 }
 /*# sourceMappingURL=style.css.map */
