@@ -35,7 +35,7 @@ const keys = [
     { keyCode: 'BracketLeft', keyChar: { ru: 'х', eng: '[' }, withShift: { ru: 'Х', eng: '{' } },
     { keyCode: 'BracketRight', keyChar: { ru: 'ъ', eng: ']' }, withShift: { ru: 'Ъ', eng: '}' } },
     {
-      keyCode: 'Backlash', keyChar: { ru: '\\', eng: '\\' }, withShift: { ru: '/', eng: '|' }, keyClass: 'backlash',
+      keyCode: 'Backslash', keyChar: { ru: '\\', eng: '\\' }, withShift: { ru: '/', eng: '|' }, keyClass: 'backlash',
     },
     {
       keyCode: 'Delete', keyChar: 'Del', hasType: false, keyClass: 'delete',
@@ -44,7 +44,7 @@ const keys = [
 
   [
     {
-      keyCode: 'CapsLock', keyChar: 'CapsLock', hasType: false, keyClass: 'capslock',
+      keyCode: 'CapsLock', keyChar: 'Caps Lock', hasType: false, keyClass: 'capslock',
     },
     { keyCode: 'KeyA', keyChar: { ru: 'ф', eng: 'a' }, withShift: { ru: 'Ф', eng: 'A' } },
     { keyCode: 'KeyS', keyChar: { ru: 'ы', eng: 's' }, withShift: { ru: 'Ы', eng: 'S' } },
@@ -87,7 +87,7 @@ const keys = [
       keyCode: 'ControlLeft', keyChar: 'Ctrl', hasType: false, keyClass: 'ctrlleft',
     },
     {
-      keyCode: 'Win', keyChar: 'Win', hasType: false, keyClass: 'win',
+      keyCode: 'MetaLeft', keyChar: 'Win', hasType: false, keyClass: 'win',
     },
     {
       keyCode: 'AltLeft', keyChar: 'Alt', hasType: false, keyClass: 'altleft',
