@@ -7,7 +7,7 @@ const createPage = () => {
   const body = document.querySelector('body');
   const title = 'Virtual Keyboard';
   const description = 'Клавиатура создана в операционной системе Windows';
-  const language = 'Для переключения языка комбинация: левыe ctrl + alt';
+  const language = 'Для переключения языка комбинация: левыe shift + alt';
 
   const wrapper = createElement('div', '', 'wrapper');
 
@@ -30,6 +30,9 @@ document.addEventListener('keydown', (e) => {
 document.addEventListener('keyup', (e) => {
   const keyBtn = document.querySelector(`[data-code=${e.code}]`);
   keyBtn.classList.remove('active');
+  if (keyBtn.dataset.code === 'ShiftLeft' || keyBtn.dataset.code === 'ShiftRight') {
+    keyboard.removeShift(keyBtn);
+  }
 });
 
 document.querySelector('.keyboard').addEventListener('mousedown', (e) => {
@@ -44,5 +47,8 @@ document.querySelector('.keyboard').addEventListener('mouseup', (e) => {
   if (e.target.closest('.key')) {
     const keyBtn = e.target.closest('.key');
     keyBtn.classList.remove('active');
+    if (keyBtn.dataset.code === 'ShiftLeft' || keyBtn.dataset.code === 'ShiftRight') {
+      keyboard.removeShift(keyBtn);
+    }
   }
 });

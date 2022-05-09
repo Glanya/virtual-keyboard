@@ -10,6 +10,7 @@ class Keyboard {
   }
 
   createKeyboard() {
+    this.saveLanguage();
     const keyboard = createElement('div', '', 'keyboard');
     const keyboardWrapper = createElement('div', '', 'keyboard-wrapper');
     for (let i = 0; i < keys.length; i += 1) {
@@ -28,8 +29,8 @@ class Keyboard {
           key.dataset.eng = item.keyChar.eng;
         }
         if (item.withShift) {
-          key.dataset.shiftRu = item.withShift.ru;
-          key.dataset.shiftEng = item.withShift.eng;
+          key.dataset.ruShift = item.withShift.ru;
+          key.dataset.engShift = item.withShift.eng;
         }
         if (item.keyClass) {
           key.classList.add(item.keyClass);
@@ -44,7 +45,30 @@ class Keyboard {
     keyboard.append(keyboardWrapper);
     return keyboard;
   }
-  
+
+  changeLanguage() {
+    if (this.language === 'ru') {
+      this.language = 'eng';
+    } else {
+      this.language = 'ru';
+    }
+
+    document.querySelectorAll('.key').forEach((e) => {
+      if (e.dataset[this.language]) {
+        e.innerHTML = e.dataset[this.language];
+      }
+    });
+    localStorage.setItem('language', this.language);
+  }
+
+  saveLanguage() {
+    if (localStorage.getItem('language')) {
+      this.language = localStorage.getItem('language');
+    } else {
+      localStorage.setItem('language', this.language);
+    }
+  }
+
   pressCapsLock() {
     if (this.capslock === true) {
       this.capslock = false;
@@ -63,11 +87,40 @@ class Keyboard {
     });
   }
 
+  pressShift() {
+    if (this.shift === true) {
+      this.shift = false;
+    } else {
+      this.shift = true;
+    }
+    document.querySelectorAll('.key').forEach((e) => {
+      if (e.dataset[`${this.language}Shift`]) {
+        e.innerHTML = e.dataset[`${this.language}Shift`];
+      }
+    });
+  }
+
+  removeShift() {
+    this.shift = false;
+    document.querySelectorAll('.key').forEach((e) => {
+      if (e.dataset[`${this.language}Shift`]) {
+        e.innerHTML = e.dataset[this.language];
+      }
+    });
+  }
+
   pressKey(e, key) {
     e.preventDefault();
     const keyName = key.dataset.code;
     if (keyName === 'CapsLock') {
       this.pressCapsLock();
+    }
+    if ((keyName === 'AltLeft' && e.shiftKey)
+    || (keyName === 'ShiftLeft' && e.altKey)) {
+      this.changeLanguage();
+    }
+    if (keyName === 'ShiftLeft' || keyName === 'ShiftRight') {
+      this.pressShift();
     }
   }
 }
