@@ -1,0 +1,148 @@
+@import "abstracts/placeholders";
+@import "abstracts/constants";
+@import "abstracts/mixins";
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: $color-bg-body;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  @extend %font-primary;
+  @include font(35px, 46px, 700);
+  letter-spacing: 0.06em;
+}
+
+.description {
+  @extend %font-secondary;
+  @include font(20px, 26px);
+  margin: 20px 0 0;
+}
+
+.language {
+  @extend %font-secondary;
+  @include font(20px, 26px);
+  margin: 10px;
+}
+
+.textarea {
+  display: block;
+  width: 800px;
+  height: 300px;
+  border-radius: 10px;
+  border-color: $color-bg-textarea;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  background-color: $color-bg-textarea;
+  @extend %font-secondary;
+  @include font(24px, 36px);
+  color: $color-text-dark;
+}
+
+.keyboard {
+  display: block;
+  width: 1000px;
+  height: 300px;
+  border: 2px solid $color-bg-dark-l;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  background-color: $color-bg-light;
+  padding: 10px;
+  margin-top: 15px;
+}
+
+.keyboard-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 10px;
+}
+
+.key {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  height: 50px;
+  border: 1px solid $color-bg-dark-l;
+  border-radius: 10px;
+  background-color: $color-bg-dark-s;
+  @extend %font-primary;
+  @include font(22px, 26px);
+  color: $color-text-light;
+  transition: all .1s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-bg-hover;
+    border-color: $color-bg-dark-s;
+  }
+
+  &.backspace {
+    width: 130px;
+  }
+
+  &.tab {
+    width: 90px;
+  }
+
+  &.capslock {
+    width: 120px;
+  }
+
+  &.enter {
+    width: 135px;
+  }
+
+  &.shiftleft {
+    width: 145px;
+  }
+
+  &.shiftright {
+    width: 150px;
+  }
+
+  &.ctrlleft {
+    width: 90px;
+  }
+
+  &.altleft {
+    width: 90px;
+  }
+
+  &.space {
+    width: 380px;
+  }
+
+  &.altright {
+    width: 80px;
+  }
+
+  &.ctrlright {
+    width: 80px;
+  }
+
+  &:active, &.active {
+    background-color: $color-bg-hover;
+    border-color: $color-bg-dark-s;
+    transform: translateY(2px);
+    box-shadow: inset 0 0 20px $color-bg-dark-l;
+  }
+}
